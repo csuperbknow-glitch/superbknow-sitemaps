@@ -1,0 +1,412 @@
+<!--
+==============================================================================
+VA COST CALCULATOR
+American Virtual Partners
+
+Purpose:
+Free tool that estimates the true annual cost of an in-house operations or
+admin hire, so visitors can compare it with a managed outsourcing quote.
+Built as a linkable resource for SEO.
+
+Notes:
+- All numbers are editable assumptions; nothing is sent anywhere.
+- Shares header, footer and style.css with the rest of the site.
+==============================================================================
+-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>In-House Hire vs Virtual Assistant Cost Calculator | American Virtual Partners</title>
+    <meta name="description" content="Free calculator: estimate the true annual cost of an in-house admin or operations hire (salary, taxes, benefits, recruiting, turnover, management time) and compare it with an outsourced virtual assistant quote.">
+    <link rel="canonical" href="https://usa-vp.com/va-cost-calculator.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="American Virtual Partners">
+    <meta property="og:title" content="In-House Hire vs Virtual Assistant Cost Calculator">
+    <meta property="og:description" content="Estimate the true cost of an in-house hire and the break-even budget for outsourcing. Free, no sign-up.">
+    <meta property="og:url" content="https://usa-vp.com/va-cost-calculator.html">
+    <meta property="og:image" content="https://usa-vp.com/brandname.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "In-House Hire vs Virtual Assistant Cost Calculator",
+        "url": "https://usa-vp.com/va-cost-calculator.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "American Virtual Partners",
+            "url": "https://usa-vp.com/"
+        }
+    }
+    </script>
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resources.css">
+    <link rel="stylesheet" href="effects.css">
+    <script src="effects.js"></script>
+</head>
+
+<body>
+
+    <!--
+    ==============================================================================
+    HEADER / PRIMARY NAVIGATION
+    ==============================================================================
+    -->
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="/">
+                <span>American</span> <b>Virtual Partners</b>
+            </a>
+
+            <nav class="desktop-nav">
+                <a class="" href="/">Home</a>
+                <a class="" href="about.html">About Us</a>
+                <a class="" href="how-it-works.html">How It Works</a>
+                <a class="" href="careers.html">Careers</a>
+                <a class="" href="contact-us.html">Contact Us</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn primary small" href="contact-us.html">Contact Us</a>
+
+                <details class="mobile-menu">
+                    <summary>Menu</summary>
+
+                    <div class="mobile-panel">
+                        <a class="" href="/">Home</a>
+                        <a class="" href="about.html">About Us</a>
+                        <a class="" href="how-it-works.html">How It Works</a>
+                        <a class="" href="careers.html">Careers</a>
+                        <a class="" href="contact-us.html">Contact Us</a>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!--
+        ==============================================================================
+        PAGE INTRO
+        ==============================================================================
+        -->
+        <section class="page-hero">
+            <div class="container">
+                <p class="kicker">Free Tool</p>
+
+                <h1>The True Cost of an In-House Hire</h1>
+
+                <p class="lead">
+                    Salary is only part of what an employee costs. Use this calculator to estimate
+                    the full annual cost of an in-house admin, operations or sales-support hire, and
+                    the monthly budget at which outsourcing the same work breaks even.
+                </p>
+            </div>
+        </section>
+
+        <!--
+        ==============================================================================
+        CALCULATOR
+        Inputs on the left, live results on the right. All values are
+        editable example assumptions.
+        ==============================================================================
+        -->
+        <section class="section" style="padding-top: 20px;">
+            <div class="container">
+                <form class="calc" id="calc" onsubmit="return false">
+
+                    <div class="card">
+                        <h3>Your Numbers</h3>
+                        <p>Defaults are examples. Replace them with your own figures.</p>
+
+                        <div class="field">
+                            <label for="salary">Annual salary ($)</label>
+                            <input id="salary" type="number" min="0" step="1000" value="55000" inputmode="numeric">
+                        </div>
+
+                        <div class="field">
+                            <label for="burden">Payroll taxes &amp; benefits (% of salary)</label>
+                            <input id="burden" type="number" min="0" max="100" step="1" value="30" inputmode="decimal">
+                            <small>Employer payroll taxes, health insurance, retirement, paid time off.</small>
+                        </div>
+
+                        <div class="field">
+                            <label for="recruit">Recruiting cost per hire ($)</label>
+                            <input id="recruit" type="number" min="0" step="100" value="4500" inputmode="numeric">
+                            <small>Job ads, recruiter fees, interview time, background checks.</small>
+                        </div>
+
+                        <div class="field">
+                            <label for="onboard">Onboarding &amp; training cost per hire ($)</label>
+                            <input id="onboard" type="number" min="0" step="100" value="3000" inputmode="numeric">
+                            <small>Training time and reduced output while the new hire ramps up.</small>
+                        </div>
+
+                        <div class="field">
+                            <label for="tools">Equipment, software &amp; overhead per year ($)</label>
+                            <input id="tools" type="number" min="0" step="100" value="3000" inputmode="numeric">
+                            <small>Laptop, licenses, workspace, HR and payroll admin.</small>
+                        </div>
+
+                        <div class="field">
+                            <label for="mgmtHours">Your management time (hours per week)</label>
+                            <input id="mgmtHours" type="number" min="0" step="0.5" value="3" inputmode="decimal">
+                        </div>
+
+                        <div class="field">
+                            <label for="mgmtRate">Value of your time ($ per hour)</label>
+                            <input id="mgmtRate" type="number" min="0" step="5" value="75" inputmode="numeric">
+                        </div>
+
+                        <div class="field">
+                            <label for="turnover">Expected annual turnover (%)</label>
+                            <input id="turnover" type="number" min="0" max="100" step="1" value="20" inputmode="decimal">
+                            <small>The chance you'll need to recruit and train a replacement within a year.</small>
+                        </div>
+
+                        <div class="field">
+                            <label for="quote">Outsourcing quote ($ per month, optional)</label>
+                            <input id="quote" type="number" min="0" step="100" placeholder="e.g. a quote you've received" inputmode="numeric">
+                        </div>
+                    </div>
+
+                    <div class="card results" aria-live="polite">
+                        <h3>Estimated Annual Cost</h3>
+
+                        <div class="result-row"><span>Salary</span><span id="rSalary">–</span></div>
+                        <div class="result-row"><span>Taxes &amp; benefits</span><span id="rBurden">–</span></div>
+                        <div class="result-row"><span>Recruiting &amp; onboarding (incl. turnover)</span><span id="rHiring">–</span></div>
+                        <div class="result-row"><span>Equipment, software &amp; overhead</span><span id="rTools">–</span></div>
+                        <div class="result-row"><span>Your management time</span><span id="rMgmt">–</span></div>
+
+                        <div class="result-total">
+                            <span class="kicker">True cost per year</span>
+                            <span class="big" id="rTotal">–</span>
+                            <p><span id="rMonthly">–</span> per month · <span id="rHourly">–</span> per paid hour</p>
+                        </div>
+
+                        <div class="result-total">
+                            <span class="kicker">Outsourcing break-even</span>
+                            <p>
+                                A managed outsourcing plan covering the same work costs less than this hire
+                                if it comes in under <strong id="rBreakeven" style="color: var(--text);">–</strong> per month.
+                            </p>
+                        </div>
+
+                        <div class="savings" id="rSavings"></div>
+
+                        <a class="btn primary full" href="contact-us.html">Get an AVP Quote</a>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <!--
+        ==============================================================================
+        METHODOLOGY / SUPPORTING CONTENT
+        ==============================================================================
+        -->
+        <section class="section">
+            <div class="container prose">
+
+                <p class="kicker">How It Works</p>
+                <h2>How We Calculate the True Cost</h2>
+
+                <p>The calculator adds up five costs that come with every in-house hire:</p>
+
+                <ol>
+                    <li><strong>Salary:</strong> the base pay you offer.</li>
+                    <li><strong>Payroll taxes and benefits:</strong> employer payroll taxes, health insurance, retirement contributions and paid time off, entered as a percentage of salary.</li>
+                    <li><strong>Recruiting and onboarding:</strong> counted once for the first hire, plus your expected turnover rate multiplied by the same cost, since some hires leave and must be replaced.</li>
+                    <li><strong>Equipment, software and overhead:</strong> the tools and administration each employee needs.</li>
+                    <li><strong>Management time:</strong> the hours you spend directing, checking and correcting work, multiplied by what your time is worth.</li>
+                </ol>
+
+                <p>
+                    "Per paid hour" divides the yearly total by 2,080 hours (40 hours × 52 weeks). Actual
+                    productive hours are lower once vacation, holidays and sick days are taken into account,
+                    so the real cost per productive hour is higher.
+                </p>
+
+                <h2>The Costs Most Businesses Miss</h2>
+
+                <ul>
+                    <li><strong>Turnover:</strong> every departure restarts recruiting, training and ramp-up, and loses what that person knew about your processes.</li>
+                    <li><strong>Coverage gaps:</strong> when one employee is out, their work usually stops.</li>
+                    <li><strong>Founder time:</strong> hours spent managing tasks are hours not spent on sales, clients or strategy.</li>
+                    <li><strong>Single points of failure:</strong> processes that live in one person's head are hard to scale.</li>
+                </ul>
+
+                <h2>When Outsourcing Makes Sense</h2>
+
+                <p>
+                    Outsourcing is usually the better choice when the work is ongoing and process-driven,
+                    such as operations, CRM and pipeline management, admin and back-office tasks, and when
+                    you want capacity that can grow without another hiring cycle.
+                    <a href="how-it-works.html">See how AVP's managed team model works</a>, or read our
+                    <a href="usa-vp-vs-belay.html">comparison of AVP and BELAY</a>.
+                </p>
+
+                <div class="note">
+                    This calculator gives estimates for planning purposes only. Your actual costs depend
+                    on role, location, benefits and industry. Nothing you enter is stored or sent anywhere.
+                    You're welcome to link to or cite this calculator in your own articles and resources.
+                </div>
+
+            </div>
+        </section>
+
+        <!--
+        ==============================================================================
+        PRIMARY CALL TO ACTION
+        ==============================================================================
+        -->
+        <section class="section">
+            <div class="container">
+                <div class="cta card">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                    </span>
+
+                    <h2>Compare Your Number With a Managed Team</h2>
+
+                    <p>
+                        Tell us what you need covered and we'll scope a structured operational team for it.
+                    </p>
+
+                    <a class="btn primary" href="contact-us.html">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!--
+    ==============================================================================
+    SITE FOOTER
+    ==============================================================================
+    -->
+    <footer>
+        <div class="container footer-grid">
+
+            <div>
+                <div class="footer-brand">
+                    American <b>Virtual Partners</b>
+                </div>
+
+                <p class="muted">
+                    Structured operational support for scalable growth.
+                </p>
+
+                <p class="muted">
+                    AVP provides structured virtual assistant outsourcing for
+                    growth-focused service businesses that need dependable
+                    execution and operational capacity.
+                </p>
+
+                <div class="actions">
+                    <a class="btn primary" href="contact-us.html">Contact Us</a>
+                    <a class="btn secondary" href="careers.html">Careers</a>
+                </div>
+            </div>
+
+            <div>
+                <p class="kicker">Quick Links</p>
+
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="contact-us.html">Contact Us</a>
+                    <a href="va-cost-calculator.html">VA Cost Calculator</a>
+                    <a href="usa-vp-vs-belay.html">AVP vs BELAY</a>
+                </div>
+            </div>
+
+            <div>
+                <p class="kicker">Contact</p>
+                <p class="muted">contactus@usa-vp.com</p>
+            </div>
+
+        </div>
+
+        <div class="container copyright">
+            © 2026 American Virtual Partners. All rights reserved.
+        </div>
+    </footer>
+
+    <!--
+    ==============================================================================
+    CALCULATOR LOGIC
+    Recalculates on every input change. Runs entirely in the browser.
+    ==============================================================================
+    -->
+    <script>
+        (function () {
+            var HOURS_PER_YEAR = 2080;
+            var WEEKS_PER_YEAR = 52;
+            var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+            function num(id) {
+                var v = parseFloat(document.getElementById(id).value);
+                return isFinite(v) && v > 0 ? v : 0;
+            }
+
+            function set(id, text) {
+                document.getElementById(id).textContent = text;
+            }
+
+            function calculate() {
+                var salary = num('salary');
+                var burden = salary * num('burden') / 100;
+                var perHire = num('recruit') + num('onboard');
+                var hiring = perHire * (1 + num('turnover') / 100);
+                var tools = num('tools');
+                var mgmt = num('mgmtHours') * num('mgmtRate') * WEEKS_PER_YEAR;
+                var total = salary + burden + hiring + tools + mgmt;
+                var monthly = total / 12;
+                var quote = num('quote');
+
+                set('rSalary', usd.format(salary));
+                set('rBurden', usd.format(burden));
+                set('rHiring', usd.format(hiring));
+                set('rTools', usd.format(tools));
+                set('rMgmt', usd.format(mgmt));
+                set('rTotal', usd.format(total));
+                set('rMonthly', usd.format(monthly));
+                set('rHourly', usd.format(total / HOURS_PER_YEAR));
+                set('rBreakeven', usd.format(monthly));
+
+                if (quote > 0) {
+                    var diff = (monthly - quote) * 12;
+                    set('rSavings', diff >= 0
+                        ? 'At ' + usd.format(quote) + '/month, outsourcing would save about ' + usd.format(diff) + ' per year.'
+                        : 'At ' + usd.format(quote) + '/month, outsourcing would cost about ' + usd.format(-diff) + ' more per year than this hire.');
+                } else {
+                    set('rSavings', '');
+                }
+            }
+
+            document.getElementById('calc').addEventListener('input', calculate);
+            calculate();
+        })();
+    </script>
+
+</body>
+</html>
