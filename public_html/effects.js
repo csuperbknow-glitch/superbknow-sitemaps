@@ -55,4 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   },{threshold:.12});
   document.querySelectorAll('.card,.intro,.hero-copy').forEach(el=>obs.observe(el));
+
+  // Footer social icons: hidden only once JS is running, then popped in one by one
+  document.querySelectorAll('.footer-social').forEach(el=>{
+    el.classList.add('social-ready');
+    obs.observe(el);
+  });
 });

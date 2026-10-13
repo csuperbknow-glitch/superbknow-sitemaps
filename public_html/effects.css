@@ -16,3 +16,35 @@
   opacity:1 !important;
   transform:translateY(0) !important;
 }
+
+/* Footer social icons: staggered entrance + hover ring */
+.footer-social a{position:relative}
+.footer-social.social-ready a{opacity:0}
+.footer-social.reveal-in a{animation:socialIn .55s cubic-bezier(.2,.8,.3,1.2) both}
+.footer-social.reveal-in a:nth-child(2){animation-delay:.08s}
+.footer-social.reveal-in a:nth-child(3){animation-delay:.16s}
+.footer-social.reveal-in a:nth-child(4){animation-delay:.24s}
+.footer-social.reveal-in a:nth-child(5){animation-delay:.32s}
+@keyframes socialIn{
+  from{opacity:0;translate:0 14px;scale:.8}
+  to{opacity:1;translate:0 0;scale:1}
+}
+.footer-social a::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:50%;
+  border:1px solid #7eb7ff;
+  opacity:0;
+  pointer-events:none;
+}
+.footer-social a:hover::after,
+.footer-social a:focus-visible::after{animation:socialRing .8s ease-out}
+@keyframes socialRing{
+  from{opacity:.7;transform:scale(1)}
+  to{opacity:0;transform:scale(1.6)}
+}
+@media (prefers-reduced-motion: reduce){
+  .footer-social.social-ready a{opacity:1;animation:none}
+  .footer-social a:hover::after{animation:none}
+}
