@@ -274,7 +274,7 @@ h3 {
     overflow: hidden;
     border-top: 1px solid #112744;
     background-image: linear-gradient(rgba(2, 12, 27, .2), rgba(2, 12, 27, .72)),
-        url('herobg.png');
+        url('herobg.webp');
     background-position: center;
     background-size: cover;
     min-height: 690px;
