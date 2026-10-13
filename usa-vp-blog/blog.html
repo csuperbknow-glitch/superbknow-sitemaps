@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Blog | AVP</title>
+    <meta name="description" content="Insights on operations, delegation, and scaling with structured virtual support.">
+    <link rel="icon" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="effects.css">
+    <link rel="stylesheet" href="blog.css">
+    <script src="effects.js" defer></script>
+</head>
+<body class="blog-page">
+
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="/">
+                <span>American</span> <b>Virtual Partners</b>
+            </a>
+
+            <nav class="desktop-nav">
+                <a class="" href="/">Home</a>
+                <a class="" href="about.html">About Us</a>
+                <a class="" href="how-it-works.html">How It Works</a>
+                <a class="active" href="blog.html">Blog</a>
+                <a class="" href="careers.html">Careers</a>
+                <a class="" href="contact-us.html">Contact Us</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn primary small" href="contact-us.html">Contact Us</a>
+
+                <details class="mobile-menu">
+                    <summary>Menu</summary>
+
+                    <div class="mobile-panel">
+                        <a class="" href="index.html">Home</a>
+                        <a class="" href="about.html">About Us</a>
+                        <a class="" href="how-it-works.html">How It Works</a>
+                        <a class="active" href="blog.html">Blog</a>
+                        <a class="" href="careers.html">Careers</a>
+                        <a class="" href="contact-us.html">Contact Us</a>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!--
+        ==============================================================================
+        BLOG HERO
+        Large feature image + editorial headline + three related-story thumbnails.
+        ==============================================================================
+        -->
+        <section class="blog-hero">
+            <div class="blog-wrap blog-hero-grid">
+                <a href="blog-post.html" aria-label="Read the featured story">
+                    <span class="blog-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=75" alt="Bright modern office with a team at work"></span>
+                </a>
+
+                <div class="blog-hero-copy">
+                    <h1>Work,<br>Scaled<br>With Focus</h1>
+
+                    <p class="blog-hero-lede">
+                        Practical playbooks on operations, delegation, and building
+                        support systems that grow with your business.
+                    </p>
+
+                    <a class="blog-hero-link" href="blog-post.html">Featured Story</a>
+
+                    <div class="blog-thumbs">
+                        <a href="blog-post.html" aria-label="Onboarding a virtual assistant"><span class="blog-img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=300&q=75" alt="" loading="lazy"></span></a>
+                        <a href="blog-post.html" aria-label="What to delegate first"><span class="blog-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=75" alt="" loading="lazy"></span></a>
+                        <a href="blog-post.html" aria-label="KPIs to track weekly"><span class="blog-img"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=300&q=75" alt="" loading="lazy"></span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+        ==============================================================================
+        01. LATEST ARTICLES
+        Filterable card grid. Add a card by copying an <a class="blog-card">
+        block; set data-cat to operations | va | growth.
+        ==============================================================================
+        -->
+        <section class="blog-section" style="padding-top: 48px;">
+            <div class="blog-wrap">
+                <div class="blog-head">
+                    <div>
+                        <span class="blog-num">01.</span>
+                        <h2 class="blog-title" data-ghost="Articles"><span>Latest Articles</span></h2>
+                    </div>
+                </div>
+
+                <div class="blog-filters" role="group" aria-label="Filter articles by topic">
+                    <button type="button" data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" data-filter="operations" aria-pressed="false">Operations</button>
+                    <button type="button" data-filter="va" aria-pressed="false">Virtual Assistants</button>
+                    <button type="button" data-filter="growth" aria-pressed="false">Growth</button>
+                </div>
+
+                <div class="blog-grid">
+                    <a class="blog-card is-featured" href="blog-post.html" data-cat="operations">
+                        <span class="blog-img"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy"></span>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Operations</span>
+                            <h3>The Operating Rhythm Behind Teams That Scale Without Burning Out</h3>
+                            <p>Weekly cadences, clear owners, and measurable outputs: the three habits that keep execution predictable as you grow.</p>
+                            <span class="blog-meta">Oct 8, 2026 · 6 min read</span>
+                        </div>
+                    </a>
+                    <a class="blog-card" href="blog-post.html" data-cat="va">
+                        <span class="blog-img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy"></span>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Virtual Assistants</span>
+                            <h3>How to Onboard a Virtual Assistant in Your First 14 Days</h3>
+                            <p>A day-by-day checklist for access, SOPs, and first wins so your new VA is productive by week two.</p>
+                            <span class="blog-meta">Oct 1, 2026 · 8 min read</span>
+                        </div>
+                    </a>
+                    <a class="blog-card" href="blog-post.html" data-cat="growth">
+                        <span class="blog-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy"></span>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Growth</span>
+                            <h3>Buy Back Your Calendar: What to Delegate First</h3>
+                            <p>Use a simple time audit to find the 10 hours a week you should stop spending on admin work.</p>
+                            <span class="blog-meta">Sep 24, 2026 · 5 min read</span>
+                        </div>
+                    </a>
+                    <a class="blog-card" href="blog-post.html" data-cat="operations">
+                        <span class="blog-img"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy"></span>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Operations</span>
+                            <h3>SOPs That People Actually Follow</h3>
+                            <p>Short, visual, and owned: how to write procedures that survive handoffs and staff changes.</p>
+                            <span class="blog-meta">Sep 17, 2026 · 7 min read</span>
+                        </div>
+                    </a>
+                    <a class="blog-card" href="blog-post.html" data-cat="va">
+                        <span class="blog-img"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy"></span>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Virtual Assistants</span>
+                            <h3>In-House Hire vs. Structured VA Support: A Cost Breakdown</h3>
+                            <p>Salary is only part of the bill. We compare the full cost of each option for a growing service business.</p>
+                            <span class="blog-meta">Sep 10, 2026 · 9 min read</span>
+                        </div>
+                    </a>
+                    <a class="blog-card" href="blog-post.html" data-cat="growth">
+                        <span class="blog-img"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy"></span>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Growth</span>
+                            <h3>KPIs Every Service Business Should Track Weekly</h3>
+                            <p>Five numbers that tell you whether your operations are keeping up with your sales pipeline.</p>
+                            <span class="blog-meta">Sep 3, 2026 · 6 min read</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!--
+        ==============================================================================
+        02. GUIDES — dark band with stats strip and roundup guides
+        ==============================================================================
+        -->
+        <section class="blog-section blog-dark">
+            <div class="blog-wrap">
+
+                <div class="blog-stats">
+                    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 00-5.4-1.8M9 20H2v-2a4 4 0 018 0v2zm3-13a3 3 0 11-6 0 3 3 0 016 0zm8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg><strong>120+</strong><span>Businesses Supported</span></div>
+                    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>40K+</strong><span>Hours Delegated</span></div>
+                    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4M7 4h10a2 2 0 012 2v14l-7-3-7 3V6a2 2 0 012-2z"/></svg><strong>300+</strong><span>SOPs Built</span></div>
+                    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19h14M7 16v-5m5 5V8m5 8v-3"/></svg><strong>60%</strong><span>Avg. Cost Savings</span></div>
+                </div>
+
+                <div class="blog-head">
+                    <div>
+                        <span class="blog-num">02.</span>
+                        <h2 class="blog-title" data-ghost="Guides"><span>Expert Guides</span></h2>
+                    </div>
+                    <a class="blog-btn-ghost" href="blog-post.html">View All Guides</a>
+                </div>
+
+                <div class="blog-guides">
+                    <a class="blog-guide" href="blog-post.html">
+                        <span class="blog-img"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy"><span class="blog-play">READ</span></span>
+                        <h3>8 Operators Share Their Best Delegation Advice</h3>
+                        <p>Founders and COOs on what they handed off first, and what they wish they had sooner.</p>
+                    </a>
+                    <a class="blog-guide" href="blog-post.html">
+                        <span class="blog-img"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy"><span class="blog-play">READ</span></span>
+                        <h3>The Complete VA Hand-Off Playbook</h3>
+                        <p>Templates for task briefs, access checklists, and weekly reviews.</p>
+                    </a>
+                    <a class="blog-guide" href="blog-post.html">
+                        <span class="blog-img"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy"><span class="blog-play">READ</span></span>
+                        <h3>Building an Operations Dashboard in a Weekend</h3>
+                        <p>The minimum metrics and tools to see your whole operation at a glance.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!--
+        ==============================================================================
+        NEWSLETTER / CTA
+        Wire the form action to your email provider.
+        ==============================================================================
+        -->
+        <section class="blog-section">
+            <div class="blog-wrap blog-news">
+                <div>
+                    <h2>Get the Operator's Brief</h2>
+                    <p>One practical idea for running a leaner, faster business, every two weeks. No spam.</p>
+                </div>
+                <form action="contact-us.html" method="get">
+                    <label class="visually-hidden" for="news-email" style="position:absolute;left:-9999px;">Email address</label>
+                    <input id="news-email" type="email" name="email" placeholder="you@company.com" required>
+                    <button class="btn primary" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+
+            <div>
+                <div class="footer-brand">
+                    American <b>Virtual Partners</b>
+                </div>
+
+                <p class="muted">
+                    Structured operational support for scalable growth.
+                </p>
+
+                <p class="muted">
+                    AVP provides structured virtual assistant outsourcing for
+                    growth-focused service businesses that need dependable
+                    execution and operational capacity.
+                </p>
+
+                <div class="actions">
+                    <a class="btn primary" href="contact-us.html">Contact Us</a>
+                    <a class="btn secondary" href="careers.html">Careers</a>
+                </div>
+            </div>
+
+            <div>
+                <p class="kicker">Quick Links</p>
+
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="contact-us.html">Contact Us</a>
+                </div>
+            </div>
+
+            <div>
+                <p class="kicker">Contact</p>
+                <p class="muted">contactus@usa-vp.com</p>
+            </div>
+
+        </div>
+
+        <div class="container copyright">
+            © 2026 American Virtual Partners. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        /* Category filter for the article grid */
+        (function () {
+            var buttons = document.querySelectorAll('.blog-filters button');
+            var cards = document.querySelectorAll('.blog-card');
+            buttons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var f = btn.dataset.filter;
+                    buttons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn); });
+                    cards.forEach(function (c) { c.hidden = f !== 'all' && c.dataset.cat !== f; });
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>
