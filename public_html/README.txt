@@ -1,0 +1,2 @@
+Add effects.css to your page <head> and effects.js before </body>.
+This restores animated particle background, reveal-on-scroll effects, floating logo motion, and interactive card tilt for the static frontend.
