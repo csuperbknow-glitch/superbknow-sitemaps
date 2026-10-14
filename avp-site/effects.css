@@ -19,7 +19,8 @@
 
 /* Footer social icons: staggered entrance + hover ring */
 .footer-social a{position:relative}
-.footer-social.social-ready a{opacity:0}
+.footer-social.social-ready:not(.reveal-in) a{opacity:0;animation:socialFailsafe 0s 2.5s forwards}
+@keyframes socialFailsafe{to{opacity:1}}
 .footer-social.reveal-in a{animation:socialIn .55s cubic-bezier(.2,.8,.3,1.2) both}
 .footer-social.reveal-in a:nth-child(2){animation-delay:.08s}
 .footer-social.reveal-in a:nth-child(3){animation-delay:.16s}
