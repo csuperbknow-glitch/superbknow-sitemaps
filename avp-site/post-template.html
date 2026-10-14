@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>YOUR POST TITLE | AVP Blog</title>
+    <meta name="description" content="One sentence summary of the post (shows in Google results).">
+    <!-- ✏️ DELETE the next line when the post is ready to publish (it hides drafts from Google) -->
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Rajdhani:wght@600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="effects.css">
+    <link rel="stylesheet" href="blog.css">
+    <script src="effects.js" defer></script>
+</head>
+<body class="blog-page">
+
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="/">
+                <span>American</span> <b>Virtual Partners</b>
+            </a>
+
+            <nav class="desktop-nav">
+                <a class="" href="/">Home</a>
+                <a class="" href="about.html">About Us</a>
+                <a class="" href="how-it-works.html">How It Works</a>
+                <a class="active" href="blog.html">Blog</a>
+                <a class="" href="careers.html">Careers</a>
+                <a class="" href="contact-us.html">Contact Us</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn primary small" href="contact-us.html">Contact Us</a>
+
+                <details class="mobile-menu">
+                    <summary>Menu</summary>
+
+                    <div class="mobile-panel">
+                        <a class="" href="index.html">Home</a>
+                        <a class="" href="about.html">About Us</a>
+                        <a class="" href="how-it-works.html">How It Works</a>
+                        <a class="active" href="blog.html">Blog</a>
+                        <a class="" href="careers.html">Careers</a>
+                        <a class="" href="contact-us.html">Contact Us</a>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--
+        ==============================================================================
+        BLOG POST TEMPLATE
+        How to use:
+        1. Copy this file and rename it, e.g. "how-to-hire-a-va.html"
+           (lowercase, dashes instead of spaces, no special characters).
+        2. Change everything marked ✏️ below. Delete any section you don't need.
+        3. Add a card for the post on blog.html (see the note there).
+        ==============================================================================
+        -->
+        <article>
+            <header class="post-hero blog-wrap">
+                <!-- ✏️ Category: Operations, Virtual Assistants, Growth, Company News... -->
+                <span class="blog-tag">Category</span>
+
+                <!-- ✏️ Post title -->
+                <h1>Your Post Title Goes Here</h1>
+
+                <!-- ✏️ Author · date · reading time -->
+                <p class="blog-meta">By Your Name · Jan 1, 2027 · 5 min read</p>
+            </header>
+
+            <!-- ✏️ Cover image: put the image file next to this page (e.g. how-to-hire-cover.webp)
+                 and change src. Describe the picture in alt. Delete this block for no image. -->
+            <div class="blog-wrap">
+                <span class="blog-img post-cover"><img src="your-cover-image.webp" alt="Describe the image"></span>
+            </div>
+
+            <div class="post-body blog-wrap">
+
+                <!-- ✏️ Intro: 2-3 sentences on what the reader will learn -->
+                <p class="post-intro">
+                    Start with a short introduction that tells the reader what this post
+                    covers and why it matters to their business.
+                </p>
+
+                <!-- ✏️ Section: copy this <h2> + paragraphs block for each section -->
+                <h2>First Section Heading</h2>
+                <p>
+                    Write your paragraph here. Keep paragraphs short, three or four
+                    sentences each. To link to another page, use
+                    <a href="contact-us.html">link text like this</a>.
+                </p>
+                <p>
+                    Another paragraph. Each paragraph goes between its own &lt;p&gt; and &lt;/p&gt; tags.
+                </p>
+
+                <h2>Second Section Heading</h2>
+                <p>A bulleted list:</p>
+                <ul>
+                    <li>First point</li>
+                    <li>Second point</li>
+                    <li>Third point</li>
+                </ul>
+
+                <p>A numbered list:</p>
+                <ol>
+                    <li>Step one</li>
+                    <li>Step two</li>
+                    <li>Step three</li>
+                </ol>
+
+                <!-- ✏️ Optional image inside the post -->
+                <figure class="post-figure">
+                    <span class="blog-img"><img src="your-image.webp" alt="Describe the image" loading="lazy"></span>
+                    <figcaption>Optional caption under the image.</figcaption>
+                </figure>
+
+                <!-- ✏️ Optional quote (from a client, team member or expert) -->
+                <figure class="post-quote">
+                    <span class="post-avatar">AB</span>
+                    <div>
+                        <blockquote>"Put the quote here."</blockquote>
+                        <figcaption><b>Person's Name</b>, Job Title, Company</figcaption>
+                    </div>
+                </figure>
+
+                <!-- ✏️ Optional key takeaways box -->
+                <h3>Summary</h3>
+                <div class="post-summary">
+                    <ul>
+                        <li>Main takeaway one.</li>
+                        <li>Main takeaway two.</li>
+                        <li>Main takeaway three.</li>
+                    </ul>
+                </div>
+
+                <!-- Call to action: usually leave as is -->
+                <div class="post-cta">
+                    <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <h2>Need a Structured Support Partner?</h2>
+                    <p>Book a call and we will map the right operational model for your business.</p>
+                    <a class="btn primary" href="contact-us.html">Contact Us</a>
+                </div>
+
+                <p class="post-back"><a class="btn secondary" href="blog.html">&larr; Back to all articles</a></p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+
+            <div>
+                <div class="footer-brand">
+                    American <b>Virtual Partners</b>
+                </div>
+
+                <p class="muted">
+                    Structured operational support for scalable growth.
+                </p>
+
+                <p class="muted">
+                    AVP provides structured virtual assistant outsourcing for
+                    growth-focused service businesses that need dependable
+                    execution and operational capacity.
+                </p>
+
+                <div class="actions">
+                    <a class="btn primary" href="contact-us.html">Contact Us</a>
+                    <a class="btn secondary" href="careers.html">Careers</a>
+                </div>
+            </div>
+
+            <div>
+                <p class="kicker">Quick Links</p>
+
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="contact-us.html">Contact Us</a>
+                </div>
+            </div>
+
+            <div>
+                <p class="kicker">Contact</p>
+                <p class="muted">contactus@usa-vp.com</p>
+
+                <!-- Social links -->
+                <p class="kicker footer-social-title">Follow Us</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/american-virtual-partners/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zm1.78 13.02H3.56V9h3.56v11.45z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/p/American-Virtual-Partners-61589990482417/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.76 0-5 2.24-5 5v2H7v4h2v8h4v-8h3l1-4h-4V9c0-.55.45-1 1-1z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@AmericanVirtualPartners/shorts" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M2.5 7.1c.2-1.5 1.4-2.6 2.9-2.7 2.2-.2 4.4-.3 6.6-.3s4.4.1 6.6.3c1.5.1 2.7 1.2 2.9 2.7.2 1.6.3 3.2.3 4.9s-.1 3.3-.3 4.9c-.2 1.5-1.4 2.6-2.9 2.7-2.2.2-4.4.3-6.6.3s-4.4-.1-6.6-.3c-1.5-.1-2.7-1.2-2.9-2.7-.2-1.6-.3-3.2-.3-4.9s.1-3.3.3-4.9z"/><path fill="currentColor" d="M10 15.2l5.2-3.2L10 8.8z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/americanvirtualpartners/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container copyright">
+            © 2026 American Virtual Partners. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

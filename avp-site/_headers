@@ -1,0 +1,11 @@
+# Netlify cache rules: let browsers keep images for a week.
+# HTML, CSS and JS are left on Netlify's default (always checks for updates),
+# so changes you upload show up immediately.
+/*.webp
+  Cache-Control: public, max-age=604800
+/*.png
+  Cache-Control: public, max-age=604800
+/*.jpg
+  Cache-Control: public, max-age=604800
+/*.svg
+  Cache-Control: public, max-age=604800

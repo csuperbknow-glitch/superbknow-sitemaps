@@ -7,6 +7,9 @@
     <title>Blog | AVP</title>
     <meta name="description" content="Insights on operations, delegation, and scaling with structured virtual support.">
     <link rel="icon" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Rajdhani:wght@600;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="effects.css">
     <link rel="stylesheet" href="blog.css">
@@ -59,7 +62,7 @@
         <section class="blog-hero">
             <div class="blog-wrap blog-hero-grid">
                 <a href="blog-post.html" aria-label="Read the featured story">
-                    <span class="blog-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=75" alt="Bright modern office with a team at work"></span>
+                    <span class="blog-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=75" alt="Bright modern office with a team at work" fetchpriority="high"></span>
                 </a>
 
                 <div class="blog-hero-copy">
@@ -85,8 +88,14 @@
         <!--
         ==============================================================================
         01. LATEST ARTICLES
-        Filterable card grid. Add a card by copying an <a class="blog-card">
-        block; set data-cat to operations | va | growth.
+        ✏️ TO ADD A POST: copy one <a class="blog-card"> block below and paste it
+        at the TOP of the list (newest first). Then change:
+          - href="..."      the post's file name, e.g. how-to-hire-a-va.html
+          - img src="..."   the cover image file
+          - data-cat="..."  operations | va | growth  (which filter button shows it)
+          - the category, title, one-sentence summary, and date.
+        Only the FIRST card gets class="blog-card is-featured" (the blue one);
+        remove "is-featured" from the card that used to be first.
         ==============================================================================
         -->
         <section class="blog-section" style="padding-top: 72px;">
@@ -207,26 +216,6 @@
             </div>
         </section>
 
-        <!--
-        ==============================================================================
-        NEWSLETTER / CTA
-        Wire the form action to your email provider.
-        ==============================================================================
-        -->
-        <section class="blog-section">
-            <div class="blog-wrap blog-news">
-                <div>
-                    <p class="kicker">Newsletter</p>
-                    <h2>Get the Operator's Brief</h2>
-                    <p>One practical idea for running a leaner, faster business, every two weeks. No spam.</p>
-                </div>
-                <form action="contact-us.html" method="get">
-                    <label for="news-email" style="position:absolute;left:-9999px;">Email address</label>
-                    <input id="news-email" type="email" name="email" placeholder="you@company.com" required>
-                    <button class="btn primary" type="submit">Subscribe</button>
-                </form>
-            </div>
-        </section>
 
     </main>
 
