@@ -3,6 +3,10 @@
 Each post is its own HTML page. Adding one takes two edits and an upload.
 Open the files in any text editor. **VS Code** (free) is easiest; Notepad or TextEdit work too.
 
+> **Blog currently in "Coming Soon" mode.** The live `blog.html` is a placeholder page.
+> When your first posts are ready: rename `blog-full-design.html` to `blog.html` (replacing
+> the placeholder) and upload it together with `blog.css` and your post pages.
+
 ## 1. Create the post page
 
 1. In your site folder, copy `post-template.html`.
