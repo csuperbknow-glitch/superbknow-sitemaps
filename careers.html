@@ -11,7 +11,7 @@ for applicants to submit employment applications.
 Notes:
 - Recruitment-focused landing page.
 - Targets remote professionals seeking structured work environments.
-- Includes embedded Google Forms application process.
+- Includes a native application form that submits to Google Forms.
 ==============================================================================
 -->
 
@@ -28,7 +28,7 @@ Notes:
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Rajdhani:wght@600;700&display=swap">
     <link rel="preload" href="herobg.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="style.css?v=20261014">
+    <link rel="stylesheet" href="style.css?v=20261016">
 </head>
 <script src="effects.js?v=20261014"></script>
 <body>
@@ -251,48 +251,176 @@ Notes:
         APPLICATION SECTION
 
         Purpose:
-        Provides candidates with a secure method of applying for
-        employment through the embedded Google Forms application.
+        Native job application form styled to match the site. Answers are
+        sent to the "Careers" Google Form, so responses keep landing in the
+        same Google Forms / Sheets inbox.
 
         External Dependency:
-        - Google Forms (Careers application)
+        - Google Forms (Careers application) — see the CONFIG block in the
+          script at the bottom of this page for the form ID and entry IDs.
+
+        Note:
+        Google Forms can't accept file uploads from an external page, so the
+        resume is collected as a link (Google Drive, Dropbox, OneDrive, etc.).
         ==============================================================================
         -->
         <section id="careers-application" class="section">
             <div class="container">
 
-        
-
-                <article class="card form-card">
+                <article class="card form-card apply-card">
 
                     <h3>Job Application</h3>
 
                     <p class="small">
-                        Please complete the secure Google Form below to apply.
+                        All information will remain confidential.
+                        Fields marked <span class="req">*</span> are required.
                     </p>
 
-                    <!--
-                    Google Forms job application.
-                    The resume upload question requires applicants to be signed
-                    in to Google; if they can't upload inside the embed, the
-                    new-tab link below opens the full form.
-                    -->
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSdokeOuae7ykzn79bYqbFM8lKGDfr__TMYPDT5FOS6B7hDEfw/viewform?embedded=true"
-                        title="Job Application"
-                        loading="lazy"
-                        frameborder="0"
-                        marginheight="0"
-                        marginwidth="0">Loading…</iframe>
+                    <form id="apply-form" class="apply-form" novalidate>
 
-                    <p class="small break">
-                        Trouble uploading your resume?
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdokeOuae7ykzn79bYqbFM8lKGDfr__TMYPDT5FOS6B7hDEfw/viewform"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            Open the application in a new tab
-                        </a>
-                    </p>
+                        <!-- PERSONAL DETAILS -->
+                        <fieldset>
+                            <legend>Personal Details</legend>
+
+                            <div class="field">
+                                <label for="f-name">Full Name <span class="req">*</span></label>
+                                <input id="f-name" name="entry.739667533" type="text" autocomplete="name" required>
+                            </div>
+
+                            <div class="field-row">
+                                <div class="field">
+                                    <label for="f-email">Email Address <span class="req">*</span></label>
+                                    <input id="f-email" name="entry.1686501260" type="email" autocomplete="email" required>
+                                </div>
+
+                                <div class="field">
+                                    <label for="f-phone">Contact Phone Number <span class="req">*</span></label>
+                                    <input id="f-phone" name="entry.1485023174" type="tel" autocomplete="tel" required>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- EXPERIENCE & SKILLS -->
+                        <fieldset>
+                            <legend>Experience &amp; Skills</legend>
+
+                            <div class="field">
+                                <label for="f-experience">Please briefly describe your most relevant work experience. <span class="req">*</span></label>
+                                <textarea id="f-experience" name="entry.1868368639" rows="4" required></textarea>
+                            </div>
+
+                            <div class="field" role="group" aria-labelledby="l-skills" data-required-group="entry.1156106177">
+                                <p class="label" id="l-skills">Which professional skills do you possess? <span class="req">*</span></p>
+                                <div class="choices two-col">
+                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Leadership"><span>Leadership</span></label>
+                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Project Management"><span>Project Management</span></label>
+                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Technical Expertise"><span>Technical Expertise</span></label>
+                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Communication"><span>Communication</span></label>
+                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Teamwork"><span>Teamwork</span></label>
+                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Problem Solving"><span>Problem Solving</span></label>
+                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Other"><span>Other</span></label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- EDUCATION & CERTIFICATIONS -->
+                        <fieldset>
+                            <legend>Education &amp; Certifications</legend>
+
+                            <div class="field">
+                                <label for="f-education">Highest Level of Education Attained <span class="req">*</span></label>
+                                <input id="f-education" name="entry.328209894" type="text" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="f-certs">Relevant Certifications (if any)</label>
+                                <textarea id="f-certs" name="entry.2078950775" rows="3"></textarea>
+                            </div>
+                        </fieldset>
+
+                        <!-- RESUME & DOCUMENTS -->
+                        <fieldset>
+                            <legend>Resume &amp; Documents</legend>
+
+                            <div class="field">
+                                <label for="f-resume">Link to Your Resume (PDF or DOCX) <span class="req">*</span></label>
+                                <input id="f-resume" data-entry="resume" type="url" placeholder="https://drive.google.com/…" required>
+                                <p class="hint">Upload your resume to Google Drive, Dropbox, or OneDrive and paste a link that anyone can view.</p>
+                            </div>
+
+                            <div class="field">
+                                <label for="f-docs">Links to Certificates or Supporting Documents (optional)</label>
+                                <textarea id="f-docs" data-entry="documents" rows="2" placeholder="One link per line"></textarea>
+                            </div>
+                        </fieldset>
+
+                        <!-- JOB-SPECIFIC QUESTIONS -->
+                        <fieldset>
+                            <legend>Job-Specific Questions</legend>
+
+                            <div class="field">
+                                <label for="f-motivation">What motivates you to apply for this position? <span class="req">*</span></label>
+                                <textarea id="f-motivation" name="entry.296588825" rows="4" required></textarea>
+                            </div>
+
+                            <div class="field">
+                                <label for="f-achievement">Describe a professional achievement you are proud of.</label>
+                                <textarea id="f-achievement" name="entry.2121573993" rows="4"></textarea>
+                            </div>
+                        </fieldset>
+
+                        <!-- AVAILABILITY & PREFERENCES -->
+                        <fieldset>
+                            <legend>Availability &amp; Preferences</legend>
+
+                            <div class="field">
+                                <label for="f-start">What is your earliest possible start date? <span class="req">*</span></label>
+                                <input id="f-start" data-date-entry="entry.298400" type="date" required>
+                            </div>
+
+                            <div class="field" role="radiogroup" aria-labelledby="l-arrangement" data-required-group="entry.1054779479">
+                                <p class="label" id="l-arrangement">Preferred Work Arrangement <span class="req">*</span></p>
+                                <div class="choices inline">
+                                    <label class="choice"><input type="radio" name="entry.1054779479" value="On-site"><span>On-site</span></label>
+                                    <label class="choice"><input type="radio" name="entry.1054779479" value="Remote"><span>Remote</span></label>
+                                    <label class="choice"><input type="radio" name="entry.1054779479" value="Hybrid"><span>Hybrid</span></label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- AGREEMENT & CONSENT -->
+                        <fieldset>
+                            <legend>Agreement &amp; Consent</legend>
+
+                            <div class="field" role="radiogroup" aria-labelledby="l-accurate" data-required-group="entry.102872101">
+                                <p class="label" id="l-accurate">I acknowledge that the information provided is accurate to the best of my knowledge. <span class="req">*</span></p>
+                                <div class="choices inline">
+                                    <label class="choice"><input type="radio" name="entry.102872101" value="Yes"><span>Yes</span></label>
+                                    <label class="choice"><input type="radio" name="entry.102872101" value="No"><span>No</span></label>
+                                </div>
+                            </div>
+
+                            <div class="field" role="radiogroup" aria-labelledby="l-consent" data-required-group="entry.1751952711">
+                                <p class="label" id="l-consent">I consent to the processing of my data for employment consideration. <span class="req">*</span></p>
+                                <div class="choices inline">
+                                    <label class="choice"><input type="radio" name="entry.1751952711" value="Yes"><span>Yes</span></label>
+                                    <label class="choice"><input type="radio" name="entry.1751952711" value="No"><span>No</span></label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <p class="form-error" id="apply-error" role="alert" hidden></p>
+
+                        <div class="form-actions">
+                            <button class="btn primary" type="submit">Submit Application</button>
+                            <button class="btn secondary" type="reset">Clear Form</button>
+                        </div>
+                    </form>
+
+                    <div class="apply-success" id="apply-success" hidden tabindex="-1">
+                        <h3>Application Received</h3>
+                        <p>Thank you for applying to American Virtual Partners. Our team will review your application and contact you if your qualifications match an open role.</p>
+                    </div>
                 </article>
             </div>
         </section>
@@ -376,6 +504,135 @@ Notes:
             © 2026 American Virtual Partners. All rights reserved.
         </div>
     </footer>
+
+    <!--
+    ==============================================================================
+    APPLICATION FORM SUBMISSION
+
+    Sends the form to the "Careers" Google Form. Google doesn't let pages read
+    the response (no-cors), so a network error is the only failure we can see.
+
+    CONFIG:
+    - RESUME_ENTRY / DOCUMENTS_ENTRY: entry IDs of the two "link" questions in
+      the Google Form (see the setup notes delivered with this page). Until
+      RESUME_ENTRY is set, the form sends applicants to the Google Form instead.
+    ==============================================================================
+    -->
+    <script>
+    (function () {
+        var CONFIG = {
+            FORM_ID: '1FAIpQLSdokeOuae7ykzn79bYqbFM8lKGDfr__TMYPDT5FOS6B7hDEfw',
+            RESUME_ENTRY: '',      // e.g. 'entry.123456789'
+            DOCUMENTS_ENTRY: ''    // e.g. 'entry.987654321'
+        };
+
+        var viewUrl = 'https://docs.google.com/forms/d/e/' + CONFIG.FORM_ID + '/viewform';
+        var postUrl = 'https://docs.google.com/forms/d/e/' + CONFIG.FORM_ID + '/formResponse';
+
+        var form = document.getElementById('apply-form');
+        var errorBox = document.getElementById('apply-error');
+        var success = document.getElementById('apply-success');
+        var submitBtn = form.querySelector('[type="submit"]');
+
+        function showError(html) {
+            errorBox.innerHTML = html;
+            errorBox.hidden = false;
+        }
+
+        function firstInvalid() {
+            var bad = null;
+
+            form.querySelectorAll('.field').forEach(function (field) {
+                field.classList.remove('invalid');
+            });
+
+            form.querySelectorAll('input[required], textarea[required]').forEach(function (el) {
+                if (!el.checkValidity() || !el.value.trim()) {
+                    el.closest('.field').classList.add('invalid');
+                    bad = bad || el;
+                }
+            });
+
+            form.querySelectorAll('[data-required-group]').forEach(function (group) {
+                var name = group.getAttribute('data-required-group');
+                if (!form.querySelector('input[name="' + name + '"]:checked')) {
+                    group.classList.add('invalid');
+                    bad = bad || group.querySelector('input');
+                }
+            });
+
+            return bad;
+        }
+
+        form.addEventListener('input', function (e) {
+            var field = e.target.closest('.field');
+            if (field) field.classList.remove('invalid');
+        });
+
+        form.addEventListener('reset', function () {
+            errorBox.hidden = true;
+            form.querySelectorAll('.field.invalid').forEach(function (f) {
+                f.classList.remove('invalid');
+            });
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            errorBox.hidden = true;
+
+            var bad = firstInvalid();
+            if (bad) {
+                showError('Please complete the highlighted fields.');
+                bad.focus();
+                return;
+            }
+
+            if (!CONFIG.RESUME_ENTRY) {
+                showError('Online applications are being set up. Please apply using ' +
+                    '<a href="' + viewUrl + '" target="_blank" rel="noopener noreferrer">our Google Form</a> for now.');
+                return;
+            }
+
+            var data = new URLSearchParams();
+
+            form.querySelectorAll('input[name], textarea[name]').forEach(function (el) {
+                if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
+                if (el.value.trim()) data.append(el.name, el.value.trim());
+            });
+
+            data.append(CONFIG.RESUME_ENTRY, document.getElementById('f-resume').value.trim());
+
+            var docs = document.getElementById('f-docs').value.trim();
+            if (docs && CONFIG.DOCUMENTS_ENTRY) data.append(CONFIG.DOCUMENTS_ENTRY, docs);
+
+            // Google date questions take year / month / day as separate fields.
+            var dateInput = document.getElementById('f-start');
+            var parts = dateInput.value.split('-');
+            var dateEntry = dateInput.getAttribute('data-date-entry');
+            data.append(dateEntry + '_year', parts[0]);
+            data.append(dateEntry + '_month', String(+parts[1]));
+            data.append(dateEntry + '_day', String(+parts[2]));
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting…';
+
+            fetch(postUrl, { method: 'POST', mode: 'no-cors', body: data })
+                .then(function () {
+                    form.hidden = true;
+                    success.hidden = false;
+                    success.focus();
+                })
+                .catch(function () {
+                    showError('Something went wrong sending your application. Please try again, or apply using ' +
+                        '<a href="' + viewUrl + '" target="_blank" rel="noopener noreferrer">our Google Form</a>.');
+                })
+                .then(function () {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Application';
+                });
+        });
+    })();
+    </script>
 
 </body>
 </html>
