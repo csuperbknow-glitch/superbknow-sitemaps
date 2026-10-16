@@ -1,25 +1,27 @@
 # How to add a blog post to the AVP website
 
-Each post is its own HTML page. Adding one takes two edits and an upload.
-Open the files in any text editor. **VS Code** (free) is easiest; Notepad or TextEdit work too.
+Each post is its own HTML page in `public_html`. Adding one takes two edits and an upload.
+You can edit the files in Hostinger's file browser, or on your computer with a text editor
+(**VS Code** is free) and then upload them.
 
-> **Blog currently in "Coming Soon" mode.** The live `blog.html` is a placeholder page.
-> When your first posts are ready: rename `blog-full-design.html` to `blog.html` (replacing
-> the placeholder) and upload it together with `blog.css` and your post pages.
+**Always download a backup of `blog.html` before editing it.**
 
 ## 1. Create the post page
 
-1. In your site folder, copy `post-template.html`.
-2. Rename the copy after the post, using lowercase words joined by dashes, for example
-   `how-to-hire-a-virtual-assistant.html`. This becomes the web address:
-   `usa-vp.com/how-to-hire-a-virtual-assistant.html`.
-3. Open it and search for ✏️. Every place you need to change is marked with it:
+1. Copy `post-template.html` and rename the copy after the post, using lowercase words
+   joined by dashes, for example `how-to-onboard-a-virtual-assistant.html`.
+   This becomes the web address: `usa-vp.com/how-to-onboard-a-virtual-assistant.html`.
+2. Open it and search for ✏️. Every place you need to change is marked with it:
    - the `<title>` and description at the top (shown in Google and on the browser tab)
-   - category, post title, author, date and reading time
+   - category, post title, date and reading time
    - cover image, introduction, section headings and paragraphs
    - optional: inline image, quote and summary box. Delete any of these you don't need.
-4. When the post is ready, **delete the line** `<meta name="robots" content="noindex">`.
+3. When the post is ready, **delete the line** `<meta name="robots" content="noindex">`.
    It keeps drafts out of Google.
+
+The two published posts (`managing-distributed-teams-accountability.html` and
+`outsourced-sales-teams-for-service-businesses.html`) are good examples to copy from.
+They show tables, highlighted quotes, bullet boxes and a FAQ section.
 
 ### Text formatting cheat sheet
 
@@ -30,43 +32,41 @@ Open the files in any text editor. **VS Code** (free) is easiest; Notepad or Tex
 | Smaller heading | `<h3>Heading</h3>` |
 | **Bold** | `<b>bold words</b>` |
 | *Italic* | `<i>italic words</i>` |
-| Link | `<a href="contact-us.html">link text</a>` |
+| Link | `<a href="contact-us.html#contact-form">link text</a>` |
 | Bulleted list | `<ul><li>One</li><li>Two</li></ul>` |
 | Numbered list | `<ol><li>One</li><li>Two</li></ol>` |
+| Highlighted quote | `<blockquote class="post-pull">Text</blockquote>` |
 
 Characters to watch out for: write `&amp;` for **&**, `&lt;` for **<** and `&gt;` for **>**.
 
 ### Images
 
-- Save images as **.webp** or **.jpg**, about **1600 px wide**, under **300 KB**.
-  (squoosh.app converts and shrinks images for free.)
-- Put the image file in the same folder as the pages. Refer to it by name: `src="my-photo.webp"`.
+- Cover images: **1600 × 900 px**, saved as **.webp**, under **300 KB**
+  (squoosh.app converts and shrinks images for free).
+- Upload the image to `public_html` next to the pages and refer to it by name:
+  `src="my-cover.webp"`.
 - Always fill in `alt="..."` with a short description of the picture.
 
-## 2. Add the post's card to the blog page
+## 2. Add the post to the Blog page
 
-1. Open `blog.html` and search for **TO ADD A POST**.
+Open `blog.html`.
+
+**a) Add its card to "Latest Articles"**
+1. Search for **TO ADD A POST**.
 2. Copy one `<a class="blog-card" ...> ... </a>` block and paste it at the **top** of the list,
    so the newest post comes first.
-3. In the copy, change:
-   - `href="..."` to the new file name, e.g. `how-to-hire-a-virtual-assistant.html`
-   - `img src="..."` to the cover image
-   - `data-cat="..."` to `operations`, `va` or `growth`. This decides which filter button shows the post.
-   - the category label, title, one-sentence summary, and date/reading time
+3. In the copy, change: `href` (the new file name), `img src` (cover image), the category,
+   title, one-sentence summary, and date/reading time.
 4. Only the first card has the blue highlight (`class="blog-card is-featured"`).
    Remove `is-featured` from the card that used to be first.
-5. Optional: to feature the post at the top of the blog page, update the large image,
-   the three small thumbnails and the "Read Featured Story" button (all near the top of
-   `blog.html`) to point at it.
+5. Once you have **three or more posts**, delete the "More Insights on the Way" card
+   (the block starting with `<div class="blog-card is-soon">`).
+
+**b) Optional: make it the featured post at the top**
+Search for **BLOG HEADER + FEATURED POST**. Update the links (`href`), image, category,
+title, summary and date in that section to point at the new post.
 
 ## 3. Publish
 
-Drag the whole site folder onto your site's **Deploys** tab in Netlify, as before.
-Check the post at `your-site/your-post-name.html` and click its card on `blog.html`.
-
-## Replacing the sample content
-
-The six article cards, the three guide cards and `blog-post.html` are examples.
-Replace them with real posts, or delete them once you have your own.
-Also update the four numbers in the stats row on `blog.html` (120+, 40K+, 300+, 60%)
-with your real figures, or delete that block.
+Upload the new post page, its cover image and the updated `blog.html` to `public_html`.
+Open `usa-vp.com/blog.html` in an incognito window, check the card, and click through to the post.

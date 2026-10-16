@@ -1,5 +1,13 @@
+<!--
+==============================================================================
+BLOG POST TEMPLATE: American Virtual Partners
+See BLOG-GUIDE.md. Search this file for ✏️ to find every spot to edit.
+==============================================================================
+-->
+
 <!doctype html>
 <html lang="en">
+<link rel="stylesheet" href="effects.css?v=20261014">
 
 <head>
     <meta charset="utf-8">
@@ -12,30 +20,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Rajdhani:wght@600;700&display=swap">
-    <link rel="stylesheet" href="style.css?v=20261014">
-    <link rel="stylesheet" href="effects.css?v=20261014">
-    <link rel="stylesheet" href="blog.css?v=20261014">
-    <script src="effects.js?v=20261014" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261015">
+    <link rel="stylesheet" href="blog.css?v=20261016">
 </head>
-<body class="blog-page">
+<script src="effects.js?v=20261014"></script>
 
+<body>
+
+    <!--
+    ==============================================================================
+    HEADER / PRIMARY NAVIGATION
+
+    Provides:
+    - Brand identity
+    - Site navigation
+    - Mobile navigation access
+    - Primary contact call-to-action
+    ==============================================================================
+    -->
     <header class="site-header">
         <div class="container nav-wrap">
-            <a class="brand" href="/">
+            <a class="brand" href="index.html">
                 <span>American</span> <b>Virtual Partners</b>
             </a>
 
             <nav class="desktop-nav">
-                <a class="" href="/">Home</a>
+                <a class="" href="index.html">Home</a>
                 <a class="" href="about.html">About Us</a>
                 <a class="" href="how-it-works.html">How It Works</a>
                 <a class="active" href="blog.html">Blog</a>
                 <a class="" href="careers.html">Careers</a>
-                <a class="" href="contact-us.html">Contact Us</a>
+                <a class="" href="contact-us.html#contact-form">Contact Us</a>
             </nav>
 
             <div class="header-actions">
-                <a class="btn primary small" href="contact-us.html">Contact Us</a>
+                <a class="btn primary small" href="contact-us.html#contact-form">Contact Us</a>
 
                 <details class="mobile-menu">
                     <summary>Menu</summary>
@@ -46,7 +65,7 @@
                         <a class="" href="how-it-works.html">How It Works</a>
                         <a class="active" href="blog.html">Blog</a>
                         <a class="" href="careers.html">Careers</a>
-                        <a class="" href="contact-us.html">Contact Us</a>
+                        <a class="" href="contact-us.html#contact-form">Contact Us</a>
                     </div>
                 </details>
             </div>
@@ -62,6 +81,7 @@
            (lowercase, dashes instead of spaces, no special characters).
         2. Change everything marked ✏️ below. Delete any section you don't need.
         3. Add a card for the post on blog.html (see the note there).
+        4. Cover images: 1600 x 900 px, .webp, under 300 KB.
         ==============================================================================
         -->
         <article>
@@ -73,7 +93,7 @@
                 <h1>Your Post Title Goes Here</h1>
 
                 <!-- ✏️ Author · date · reading time -->
-                <p class="blog-meta">By Your Name · Jan 1, 2027 · 5 min read</p>
+                <p class="blog-meta">American Virtual Partners · Jan 1, 2027 · 5 min read</p>
             </header>
 
             <!-- ✏️ Cover image: put the image file next to this page (e.g. how-to-hire-cover.webp)
@@ -95,7 +115,7 @@
                 <p>
                     Write your paragraph here. Keep paragraphs short, three or four
                     sentences each. To link to another page, use
-                    <a href="contact-us.html">link text like this</a>.
+                    <a href="contact-us.html#contact-form">link text like this</a>.
                 </p>
                 <p>
                     Another paragraph. Each paragraph goes between its own &lt;p&gt; and &lt;/p&gt; tags.
@@ -146,7 +166,7 @@
                     <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
                     <h2>Need a Structured Support Partner?</h2>
                     <p>Book a call and we will map the right operational model for your business.</p>
-                    <a class="btn primary" href="contact-us.html">Contact Us</a>
+                    <a class="btn primary" href="contact-us.html#contact-form">Contact Us</a>
                 </div>
 
                 <p class="post-back"><a class="btn secondary" href="blog.html">&larr; Back to all articles</a></p>
@@ -154,6 +174,17 @@
         </article>
     </main>
 
+    <!--
+    ==============================================================================
+    SITE FOOTER
+
+    Contains:
+    - Company overview
+    - Quick navigation links
+    - Contact information
+    - Copyright notice
+    ==============================================================================
+    -->
     <footer>
         <div class="container footer-grid">
 
@@ -173,7 +204,7 @@
                 </p>
 
                 <div class="actions">
-                    <a class="btn primary" href="contact-us.html">Contact Us</a>
+                    <a class="btn primary" href="contact-us.html#contact-form">Contact Us</a>
                     <a class="btn secondary" href="careers.html">Careers</a>
                 </div>
             </div>
@@ -187,7 +218,7 @@
                     <a href="how-it-works.html">How It Works</a>
                     <a href="blog.html">Blog</a>
                     <a href="careers.html">Careers</a>
-                    <a href="contact-us.html">Contact Us</a>
+                    <a href="contact-us.html#contact-form">Contact Us</a>
                 </div>
             </div>
 

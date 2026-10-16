@@ -1,15 +1,8 @@
 <!--
 ==============================================================================
-BLOG PAGE (COMING SOON)
+BLOG
 American Virtual Partners
-
-Purpose:
-Placeholder for the upcoming blog and insights section.
-
-Notes:
-- Uses the same hero, card and CTA components as the About page.
-- When the first posts are ready, this page is replaced by the full
-  blog layout (blog-full-design.html + blog.css).
+See BLOG-GUIDE.md for how to add a new post.
 ==============================================================================
 -->
 
@@ -21,12 +14,14 @@ Notes:
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Blog &amp; Insights | AVP</title>
-    <meta name="description" content="Blog and insights from American Virtual Partners on operations, delegation, and scaling with structured support. Coming soon.">
+    <meta name="description" content="Insights from American Virtual Partners on managing distributed teams, outsourced sales, and building structured operations for growing service businesses.">
     <link rel="icon" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Rajdhani:wght@600;700&display=swap">
-    <link rel="stylesheet" href="style.css?v=20261014">
+    <link rel="stylesheet" href="style.css?v=20261015">
+    <link rel="stylesheet" href="blog.css?v=20261016">
+    <link rel="canonical" href="https://usa-vp.com/blog.html">
 </head>
 <script src="effects.js?v=20261014"></script>
 
@@ -55,11 +50,11 @@ Notes:
                 <a class="" href="how-it-works.html">How It Works</a>
                 <a class="active" href="blog.html">Blog</a>
                 <a class="" href="careers.html">Careers</a>
-                <a class="" href="contact-us.html">Contact Us</a>
+                <a class="" href="contact-us.html#contact-form">Contact Us</a>
             </nav>
 
             <div class="header-actions">
-                <a class="btn primary small" href="contact-us.html">Contact Us</a>
+                <a class="btn primary small" href="contact-us.html#contact-form">Contact Us</a>
 
                 <details class="mobile-menu">
                     <summary>Menu</summary>
@@ -70,7 +65,7 @@ Notes:
                         <a class="" href="how-it-works.html">How It Works</a>
                         <a class="active" href="blog.html">Blog</a>
                         <a class="" href="careers.html">Careers</a>
-                        <a class="" href="contact-us.html">Contact Us</a>
+                        <a class="" href="contact-us.html#contact-form">Contact Us</a>
                     </div>
                 </details>
             </div>
@@ -81,85 +76,92 @@ Notes:
 
         <!--
         ==============================================================================
-        BLOG INTRO + WHAT TO EXPECT
-        Coming-soon message and the topics the blog will cover.
+        BLOG HEADER + FEATURED POST
+        To feature a different post, change the link, image, category, title,
+        excerpt and date below.
         ==============================================================================
         -->
-        <section class="section">
-            <div class="container">
-
-                <div class="intro">
-                    <p class="kicker">Blog &amp; Insights</p>
-
-                    <h1 style="margin: 18px 0 0;">Insights Coming Soon</h1>
-
-                    <p>
-                        Practical ideas on operations, delegation, and building support
-                        systems that scale. Our first articles and insights are on the
-                        way. Stay tuned.
-                    </p>
+        <section class="blog-hero">
+            <div class="blog-wrap">
+                <div class="blog-pagehead">
+                    <div>
+                        <p class="kicker">AVP Insights</p>
+                        <h1>Blog &amp; Insights</h1>
+                    </div>
+                    <p>Practical ideas on operations, delegation, and building support systems that scale.</p>
                 </div>
 
-                <div class="grid three">
+                <div class="blog-hero-grid">
+                    <a href="managing-distributed-teams-accountability.html" aria-label="Read the featured article">
+                        <span class="blog-img"><img src="managing-distributed-teams-cover.webp" alt="Network of remote team members connected to a central hub" width="1600" height="900" fetchpriority="high"></span>
+                    </a>
 
-                    <article class="card">
-                        <div class="center">
-                            <span class="icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 6h16M4 12h10M4 18h7m9-4l-3 3-2-2"/>
-                                </svg>
-                            </span>
-                        </div>
-
-                        <h3>Operations</h3>
-
-                        <p>
-                            Systems, SOPs, and routines that keep execution predictable
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <div class="center">
-                            <span class="icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M16 19v-1a4 4 0 00-4-4H7a4 4 0 00-4 4v1m6.5-9a3.5 3.5 0 100-7 3.5 3.5 0 000 7zM17 11l2 2 4-4"/>
-                                </svg>
-                            </span>
-                        </div>
-
-                        <h3>Virtual Assistants</h3>
-
-                        <p>
-                            How to delegate, onboard, and work with remote support teams
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <div class="center">
-                            <span class="icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 19h14M7 16v-5m5 5V8m5 8v-3"/>
-                                </svg>
-                            </span>
-                        </div>
-
-                        <h3>Growth</h3>
-
-                        <p>
-                            Practical strategies for scaling without adding overhead
-                        </p>
-                    </article>
-
+                    <div class="blog-hero-copy">
+                        <span class="blog-tag">Featured · Operations</span>
+                        <h2 class="blog-feature-title"><a href="managing-distributed-teams-accountability.html">Managing Distributed Teams: The Accountability Problem Most Service Businesses Never See Coming</a></h2>
+                        <p class="blog-hero-lede">Deadlines slip and follow-ups get missed, but the problem usually isn't your team. Here's how to build accountability into distributed teams with clear ownership, role-specific KPIs, and documented systems.</p>
+                        <span class="blog-meta">Oct 16, 2026 · 8 min read</span>
+                        <a class="btn primary blog-hero-link" href="managing-distributed-teams-accountability.html">Read Article</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!--
         ==============================================================================
-        PRIMARY CALL TO ACTION
+        01. LATEST ARTICLES
+        TO ADD A POST: copy one <a class="blog-card"> block and paste it at the
+        TOP of the list (newest first). Change the href, img src, category,
+        title, summary and date. Only the first card has "is-featured" (blue).
+        Delete the "Coming Soon" card once you have three or more posts.
         ==============================================================================
         -->
-        <section class="section">
+        <section class="blog-section">
+            <div class="blog-wrap">
+                <div class="blog-head">
+                    <div>
+                        <span class="blog-num">01.</span>
+                        <h2 class="blog-title" data-ghost="Articles"><span>Latest Articles</span></h2>
+                    </div>
+                </div>
+
+                <div class="blog-grid">
+                    <a class="blog-card is-featured" href="managing-distributed-teams-accountability.html">
+                        <span class="blog-img"><img src="managing-distributed-teams-cover.webp" alt="" width="1600" height="900" loading="lazy"></span>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Operations</span>
+                            <h3>Managing Distributed Teams: The Accountability Problem Most Service Businesses Never See Coming</h3>
+                            <p>Deadlines slip and follow-ups get missed, but the problem usually isn't your team. Here's how to build accountability into distributed teams with clear ownership, role-specific KPIs, and documented systems.</p>
+                            <span class="blog-meta">Oct 16, 2026 · 8 min read</span>
+                        </div>
+                    </a>
+                    <a class="blog-card" href="outsourced-sales-teams-for-service-businesses.html">
+                        <span class="blog-img"><img src="outsourced-sales-teams-cover.webp" alt="" width="1600" height="900" loading="lazy"></span>
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Sales &amp; CRM</span>
+                            <h3>Why Growing Service Businesses Are Turning to Outsourced Sales Teams</h3>
+                            <p>The more clients you win, the less time you have to find new ones. How outsourced sales teams support CRM execution, follow-ups, and pipeline management, and how to choose the right partner.</p>
+                            <span class="blog-meta">Oct 16, 2026 · 9 min read</span>
+                        </div>
+                    </a>
+                    <div class="blog-card is-soon">
+                        <div class="blog-card-body">
+                            <span class="blog-tag">Coming Soon</span>
+                            <h3>More Insights on the Way</h3>
+                            <p>New articles on operations, delegation, and sales execution are in the works. Have a topic you'd like us to cover?</p>
+                            <a class="btn secondary" href="contact-us.html#contact-form">Suggest a Topic</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+        ==============================================================================
+        CALL TO ACTION
+        ==============================================================================
+        -->
+        <section class="section blog-cta-section">
             <div class="container">
                 <div class="cta card">
 
@@ -169,14 +171,14 @@ Notes:
                         </svg>
                     </span>
 
-                    <h2>Don't Want to Wait?</h2>
+                    <h2>Need a Structured Support Partner?</h2>
 
                     <p>
-                        Talk to us now and we will map the right operational
+                        Book a call and we will map the right operational
                         model for your business.
                     </p>
 
-                    <a class="btn primary" href="contact-us.html">
+                    <a class="btn primary" href="contact-us.html#contact-form">
                         Contact Us
                     </a>
                 </div>
@@ -215,7 +217,7 @@ Notes:
                 </p>
 
                 <div class="actions">
-                    <a class="btn primary" href="contact-us.html">Contact Us</a>
+                    <a class="btn primary" href="contact-us.html#contact-form">Contact Us</a>
                     <a class="btn secondary" href="careers.html">Careers</a>
                 </div>
             </div>
@@ -229,7 +231,7 @@ Notes:
                     <a href="how-it-works.html">How It Works</a>
                     <a href="blog.html">Blog</a>
                     <a href="careers.html">Careers</a>
-                    <a href="contact-us.html">Contact Us</a>
+                    <a href="contact-us.html#contact-form">Contact Us</a>
                 </div>
             </div>
 
