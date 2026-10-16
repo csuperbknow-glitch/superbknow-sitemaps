@@ -11,7 +11,8 @@ for applicants to submit employment applications.
 Notes:
 - Recruitment-focused landing page.
 - Targets remote professionals seeking structured work environments.
-- Includes a native application form that submits to Google Forms.
+- Includes a native application form; answers go to the careers Google
+  Sheet and uploaded files to the careers Google Drive folder.
 ==============================================================================
 -->
 
@@ -251,19 +252,13 @@ Notes:
         APPLICATION SECTION
 
         Purpose:
-        Native job application form styled to match the site. Answers are
-        sent to the "Careers" Google Form, so responses keep landing in the
-        same Google Forms / Sheets inbox.
+        Native job application form styled to match the site.
 
         External Dependency:
-        - Google Forms (Careers application) — see the CONFIG block in the
-          script at the bottom of this page for the form ID and entry IDs.
-
-        Note:
-        Google Forms can't accept file uploads from an external page, so files
-        are saved to Google Drive by a small Apps Script web app
-        (careers-upload-apps-script.gs) and their Drive links are sent to the
-        Google Form.
+        - Google Apps Script web app (careers-apps-script.gs), which saves
+          uploaded files to the careers Google Drive folder and adds one row
+          per application to the careers Google Sheet. Its URL goes in the
+          CONFIG block of the script at the bottom of this page.
         ==============================================================================
         -->
         <section id="careers-application" class="section">
@@ -286,18 +281,18 @@ Notes:
 
                             <div class="field">
                                 <label for="f-name">Full Name <span class="req">*</span></label>
-                                <input id="f-name" name="entry.739667533" type="text" autocomplete="name" required>
+                                <input id="f-name" name="fullName" type="text" autocomplete="name" required>
                             </div>
 
                             <div class="field-row">
                                 <div class="field">
                                     <label for="f-email">Email Address <span class="req">*</span></label>
-                                    <input id="f-email" name="entry.1686501260" type="email" autocomplete="email" required>
+                                    <input id="f-email" name="email" type="email" autocomplete="email" required>
                                 </div>
 
                                 <div class="field">
                                     <label for="f-phone">Contact Phone Number <span class="req">*</span></label>
-                                    <input id="f-phone" name="entry.1485023174" type="tel" autocomplete="tel" required>
+                                    <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
                                 </div>
                             </div>
                         </fieldset>
@@ -308,19 +303,19 @@ Notes:
 
                             <div class="field">
                                 <label for="f-experience">Please briefly describe your most relevant work experience. <span class="req">*</span></label>
-                                <textarea id="f-experience" name="entry.1868368639" rows="4" required></textarea>
+                                <textarea id="f-experience" name="experience" rows="4" required></textarea>
                             </div>
 
-                            <div class="field" role="group" aria-labelledby="l-skills" data-required-group="entry.1156106177">
+                            <div class="field" role="group" aria-labelledby="l-skills" data-required-group="skills">
                                 <p class="label" id="l-skills">Which professional skills do you possess? <span class="req">*</span></p>
                                 <div class="choices two-col">
-                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Leadership"><span>Leadership</span></label>
-                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Project Management"><span>Project Management</span></label>
-                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Technical Expertise"><span>Technical Expertise</span></label>
-                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Communication"><span>Communication</span></label>
-                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Teamwork"><span>Teamwork</span></label>
-                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Problem Solving"><span>Problem Solving</span></label>
-                                    <label class="choice"><input type="checkbox" name="entry.1156106177" value="Other"><span>Other</span></label>
+                                    <label class="choice"><input type="checkbox" name="skills" value="Leadership"><span>Leadership</span></label>
+                                    <label class="choice"><input type="checkbox" name="skills" value="Project Management"><span>Project Management</span></label>
+                                    <label class="choice"><input type="checkbox" name="skills" value="Technical Expertise"><span>Technical Expertise</span></label>
+                                    <label class="choice"><input type="checkbox" name="skills" value="Communication"><span>Communication</span></label>
+                                    <label class="choice"><input type="checkbox" name="skills" value="Teamwork"><span>Teamwork</span></label>
+                                    <label class="choice"><input type="checkbox" name="skills" value="Problem Solving"><span>Problem Solving</span></label>
+                                    <label class="choice"><input type="checkbox" name="skills" value="Other"><span>Other</span></label>
                                 </div>
                             </div>
                         </fieldset>
@@ -331,12 +326,12 @@ Notes:
 
                             <div class="field">
                                 <label for="f-education">Highest Level of Education Attained <span class="req">*</span></label>
-                                <input id="f-education" name="entry.328209894" type="text" required>
+                                <input id="f-education" name="education" type="text" required>
                             </div>
 
                             <div class="field">
                                 <label for="f-certs">Relevant Certifications (if any)</label>
-                                <textarea id="f-certs" name="entry.2078950775" rows="3"></textarea>
+                                <textarea id="f-certs" name="certifications" rows="3"></textarea>
                             </div>
                         </fieldset>
 
@@ -373,12 +368,12 @@ Notes:
 
                             <div class="field">
                                 <label for="f-motivation">What motivates you to apply for this position? <span class="req">*</span></label>
-                                <textarea id="f-motivation" name="entry.296588825" rows="4" required></textarea>
+                                <textarea id="f-motivation" name="motivation" rows="4" required></textarea>
                             </div>
 
                             <div class="field">
                                 <label for="f-achievement">Describe a professional achievement you are proud of.</label>
-                                <textarea id="f-achievement" name="entry.2121573993" rows="4"></textarea>
+                                <textarea id="f-achievement" name="achievement" rows="4"></textarea>
                             </div>
                         </fieldset>
 
@@ -388,15 +383,15 @@ Notes:
 
                             <div class="field">
                                 <label for="f-start">What is your earliest possible start date? <span class="req">*</span></label>
-                                <input id="f-start" data-date-entry="entry.298400" type="date" required>
+                                <input id="f-start" name="startDate" type="date" required>
                             </div>
 
-                            <div class="field" role="radiogroup" aria-labelledby="l-arrangement" data-required-group="entry.1054779479">
+                            <div class="field" role="radiogroup" aria-labelledby="l-arrangement" data-required-group="workArrangement">
                                 <p class="label" id="l-arrangement">Preferred Work Arrangement <span class="req">*</span></p>
                                 <div class="choices inline">
-                                    <label class="choice"><input type="radio" name="entry.1054779479" value="On-site"><span>On-site</span></label>
-                                    <label class="choice"><input type="radio" name="entry.1054779479" value="Remote"><span>Remote</span></label>
-                                    <label class="choice"><input type="radio" name="entry.1054779479" value="Hybrid"><span>Hybrid</span></label>
+                                    <label class="choice"><input type="radio" name="workArrangement" value="On-site"><span>On-site</span></label>
+                                    <label class="choice"><input type="radio" name="workArrangement" value="Remote"><span>Remote</span></label>
+                                    <label class="choice"><input type="radio" name="workArrangement" value="Hybrid"><span>Hybrid</span></label>
                                 </div>
                             </div>
                         </fieldset>
@@ -405,19 +400,19 @@ Notes:
                         <fieldset>
                             <legend>Agreement &amp; Consent</legend>
 
-                            <div class="field" role="radiogroup" aria-labelledby="l-accurate" data-required-group="entry.102872101">
+                            <div class="field" role="radiogroup" aria-labelledby="l-accurate" data-required-group="infoAccurate">
                                 <p class="label" id="l-accurate">I acknowledge that the information provided is accurate to the best of my knowledge. <span class="req">*</span></p>
                                 <div class="choices inline">
-                                    <label class="choice"><input type="radio" name="entry.102872101" value="Yes"><span>Yes</span></label>
-                                    <label class="choice"><input type="radio" name="entry.102872101" value="No"><span>No</span></label>
+                                    <label class="choice"><input type="radio" name="infoAccurate" value="Yes"><span>Yes</span></label>
+                                    <label class="choice"><input type="radio" name="infoAccurate" value="No"><span>No</span></label>
                                 </div>
                             </div>
 
-                            <div class="field" role="radiogroup" aria-labelledby="l-consent" data-required-group="entry.1751952711">
+                            <div class="field" role="radiogroup" aria-labelledby="l-consent" data-required-group="dataConsent">
                                 <p class="label" id="l-consent">I consent to the processing of my data for employment consideration. <span class="req">*</span></p>
                                 <div class="choices inline">
-                                    <label class="choice"><input type="radio" name="entry.1751952711" value="Yes"><span>Yes</span></label>
-                                    <label class="choice"><input type="radio" name="entry.1751952711" value="No"><span>No</span></label>
+                                    <label class="choice"><input type="radio" name="dataConsent" value="Yes"><span>Yes</span></label>
+                                    <label class="choice"><input type="radio" name="dataConsent" value="No"><span>No</span></label>
                                 </div>
                             </div>
                         </fieldset>
@@ -522,34 +517,29 @@ Notes:
     ==============================================================================
     APPLICATION FORM SUBMISSION
 
-    1. Each selected file is sent to a Google Apps Script web app
-       (careers-upload-apps-script.gs), which saves it into the AVP careers
-       Google Drive folder and returns the file's Drive link.
-    2. The answers plus those Drive links are then sent to the "Careers"
-       Google Form. Google doesn't let pages read the form's reply
-       (no-cors), so a network error is the only failure we can see there.
+    Talks to the Google Apps Script web app (careers-apps-script.gs):
+    1. Each selected file is sent on its own ("upload"); the script saves it
+       into the applicant's subfolder of the careers Google Drive folder.
+    2. The answers are then sent ("submit"); the script adds them as one row
+       to the careers Google Sheet. File uploads are not put in the sheet;
+       the Application ID column matches the applicant's Drive subfolder.
 
     CONFIG:
-    - UPLOAD_URL: the Apps Script web app URL (ends in /exec).
-    - RESUME_ENTRY / DOCUMENTS_ENTRY: entry IDs of the two short-answer
-      "link" questions that replace the upload questions in the Google Form.
-    Until all three are set, the form sends applicants to the Google Form.
+    - SCRIPT_URL: the Apps Script web app URL (ends in /exec). Until it is
+      set, the form sends applicants to the old Google Form instead.
     ==============================================================================
     -->
     <script>
     (function () {
         var CONFIG = {
-            FORM_ID: '1FAIpQLSdokeOuae7ykzn79bYqbFM8lKGDfr__TMYPDT5FOS6B7hDEfw',
-            UPLOAD_URL: '',        // e.g. 'https://script.google.com/macros/s/XXXX/exec'
-            RESUME_ENTRY: '',      // e.g. 'entry.123456789'
-            DOCUMENTS_ENTRY: ''    // e.g. 'entry.987654321'
+            SCRIPT_URL: ''   // e.g. 'https://script.google.com/macros/s/XXXX/exec'
         };
 
         var MAX_BYTES = 10 * 1024 * 1024;
         var ALLOWED_EXT = ['pdf', 'doc', 'docx'];
 
-        var viewUrl = 'https://docs.google.com/forms/d/e/' + CONFIG.FORM_ID + '/viewform';
-        var postUrl = 'https://docs.google.com/forms/d/e/' + CONFIG.FORM_ID + '/formResponse';
+        // Fallback while SCRIPT_URL isn't set, or if sending fails.
+        var viewUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdokeOuae7ykzn79bYqbFM8lKGDfr__TMYPDT5FOS6B7hDEfw/viewform';
 
         var form = document.getElementById('apply-form');
         var errorBox = document.getElementById('apply-error');
@@ -696,40 +686,52 @@ Notes:
             });
         }
 
-        // Uploads one file to Drive via the Apps Script web app; resolves to its Drive link.
+        // Sends a request to the Apps Script web app and returns its JSON reply.
         // The body is sent as text/plain so the browser doesn't need a CORS preflight.
-        function uploadFile(file, applicant, submissionId) {
-            return readAsBase64(file).then(function (data) {
-                return fetch(CONFIG.UPLOAD_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        fileName: file.name,
-                        data: data,
-                        applicant: applicant,
-                        submissionId: submissionId
-                    })
-                });
+        function callScript(payload) {
+            return fetch(CONFIG.SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(payload)
             }).then(function (res) {
                 return res.json();
             }).then(function (result) {
-                if (!result.ok) throw new Error(result.error || 'Upload failed.');
-                return result.url;
+                if (!result.ok) throw new Error(result.error || 'Request failed.');
+                return result;
             });
         }
 
         // Sequential so all of an applicant's files land in the same Drive subfolder.
-        function uploadAll(files, applicant, submissionId, onProgress) {
-            var urls = [];
+        function uploadAll(files, applicant, applicationId, onProgress) {
             return files.reduce(function (chain, file, i) {
                 return chain.then(function () {
                     onProgress(i + 1, files.length);
-                    return uploadFile(file, applicant, submissionId).then(function (url) {
-                        urls.push(url);
+                    return readAsBase64(file).then(function (data) {
+                        return callScript({
+                            action: 'upload',
+                            applicationId: applicationId,
+                            applicant: applicant,
+                            fileName: file.name,
+                            data: data
+                        });
                     });
                 });
-            }, Promise.resolve()).then(function () {
-                return urls;
+            }, Promise.resolve());
+        }
+
+        function collectAnswers() {
+            var answers = {};
+
+            form.querySelectorAll('input[name], textarea[name]').forEach(function (el) {
+                if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
+                var value = el.value.trim();
+                if (el.type === 'checkbox') {
+                    answers[el.name] = (answers[el.name] || []).concat(value);
+                } else {
+                    answers[el.name] = value;
+                }
             });
+
+            return answers;
         }
 
         function setBusy(busy, label) {
@@ -748,39 +750,25 @@ Notes:
                 return;
             }
 
-            if (!CONFIG.UPLOAD_URL || !CONFIG.RESUME_ENTRY || !CONFIG.DOCUMENTS_ENTRY) {
+            if (!CONFIG.SCRIPT_URL) {
                 showError('Online applications are being set up. Please apply using ' +
                     '<a href="' + viewUrl + '" target="_blank" rel="noopener noreferrer">our Google Form</a> for now.');
                 return;
             }
 
-            var data = new URLSearchParams();
-
-            form.querySelectorAll('input[name], textarea[name]').forEach(function (el) {
-                if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
-                if (el.value.trim()) data.append(el.name, el.value.trim());
-            });
-
-            // Google date questions take year / month / day as separate fields.
-            var dateInput = document.getElementById('f-start');
-            var parts = dateInput.value.split('-');
-            var dateEntry = dateInput.getAttribute('data-date-entry');
-            data.append(dateEntry + '_year', parts[0]);
-            data.append(dateEntry + '_month', String(+parts[1]));
-            data.append(dateEntry + '_day', String(+parts[2]));
-
-            var applicant = document.getElementById('f-name').value.trim();
-            var submissionId = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+            var answers = collectAnswers();
+            var applicationId = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
             var files = selected.resume.concat(selected.documents);
 
-            uploadAll(files, applicant, submissionId, function (n, total) {
+            uploadAll(files, answers.fullName, applicationId, function (n, total) {
                 setBusy(true, 'Uploading file ' + n + ' of ' + total + '…');
-            }).then(function (urls) {
-                data.append(CONFIG.RESUME_ENTRY, urls[0]);
-                if (urls.length > 1) data.append(CONFIG.DOCUMENTS_ENTRY, urls.slice(1).join('\n'));
-
+            }).then(function () {
                 setBusy(true, 'Submitting…');
-                return fetch(postUrl, { method: 'POST', mode: 'no-cors', body: data });
+                return callScript({
+                    action: 'submit',
+                    applicationId: applicationId,
+                    answers: answers
+                });
             }).then(function () {
                 form.hidden = true;
                 success.hidden = false;
